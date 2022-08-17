@@ -3,7 +3,7 @@
 PortSystem          1.0
 
 name                maildrop
-version             3.0.0
+version             3.0.8
 revision            0
 categories          mail
 license             {GPL-3 OpenSSLException}
@@ -15,14 +15,15 @@ platforms           darwin
 master_sites        sourceforge:project/courier/maildrop/${version}/
 use_bzip2           yes
 
-checksums           rmd160  9be87d2615f49bb02702c88ade8ebc3260c03e51 \
-                    sha256  48e91a4a101e276a131fbd3afb94e98401a0cece751961c6d9c2e422d661413c \
-                    size    2091018
+checksums           rmd160  982e4b64ab58ab2058c3b6f62fcdfa6ec7d68907 \
+                    sha256  b8855e280b8922d18fb37b3e49375272782c8fe6b9190aa1096b97e500010cb5 \
+                    size    2142001
 
+configure.cxxflags-append -std=c++11
 configure.args      --mandir=${prefix}/share/man \
                     --with-etcdir=${prefix}/etc \
                     --enable-syslog=1
-depends_lib         port:pcre port:gdbm port:libidn port:courier-unicode
+depends_lib         port:pcre2 port:gdbm port:libidn port:courier-unicode
 depends_build       port:pkgconfig
 
 variant vpopmail description {For use with vpopmail} {
